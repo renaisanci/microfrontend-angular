@@ -1,0 +1,25 @@
+ng new mono-workspace --createApplication="false"
+cd mono-workspace
+ng g application host-app --routing --style=scss
+ng g application mfe-app --routing --style=scss
+
+
+
+install webpack
+npm i webpack webpack-cli --save-dev
+
+add module federation and difine the project and port
+ng add @angular-architects/module-federation --project host-app --port 4200
+
+
+
+run  the prijects
+ng add @angular-architects/module-federation --project host-app --port 4200
+ng add @angular-architects/module-federation --project mfe-app --port 4300
+
+
+
+the we neeed to set up the webpack config to export the module that we want to
+
+after that we start the server and we're able to call the minified javascript using the
+  "mfeApp": "mfeApp@http://localhost:4300/remoteEntry.js"
